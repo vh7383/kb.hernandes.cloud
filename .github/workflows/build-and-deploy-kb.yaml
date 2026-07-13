@@ -8,9 +8,9 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -28,7 +28,7 @@ jobs:
       # Clé dédiée, restreinte via rrsync au seul dossier /opt/kb-hernandes-cloud/public
       # sur le Pi (NE PAS réutiliser PI_SSH_KEY, verrouillée sur deploy.sh du site).
       - name: Configurer SSH
-        uses: webfactory/ssh-agent@v0.9.0
+        uses: webfactory/ssh-agent@v0.10.0
         with:
           ssh-private-key: ${{ secrets.PI_KB_SSH_KEY }}
 
